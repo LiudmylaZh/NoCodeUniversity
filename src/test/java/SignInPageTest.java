@@ -5,7 +5,7 @@ public class SignInPageTest extends BaseTest{
     @Test
 
     public void loginWithValidDatesWithRoleTeacher() {
-        startPage.clickOnSingInButton();
+        homePage.clickOnSignInButton();
         Configuration.fastSetValue = true;
         signInPage.enterEmail("roxanne@example.com");
         signInPage.enterPassword("123456");
@@ -16,7 +16,7 @@ public class SignInPageTest extends BaseTest{
     }
 @Test
     public void loginWithInvalidDatesWithRoleTeacher() {
-        startPage.clickOnSingInButton();
+        homePage.clickOnSignInButton();
         Configuration.fastSetValue = true;
         signInPage.enterEmail("roxanne1@example.com");
         signInPage.enterPassword("123Q456");
@@ -29,7 +29,7 @@ public class SignInPageTest extends BaseTest{
     @Test
 
     public void loginWithValidDatesWithRoleStudent() {
-        startPage.clickOnSingInButton();
+        homePage.clickOnSignInButton();
         Configuration.fastSetValue = true;
         signInPage.enterEmail("malik@example.com");
         signInPage.enterPassword("123456");
@@ -42,9 +42,9 @@ public class SignInPageTest extends BaseTest{
 
     @Test
     public void resetPassword (){
-        startPage.clickOnSingInButton();
+        homePage.clickOnSignInButton();
         signInPage.clickOnForgotPassword();
-        // how check the form which is not present?
+        // how does check the form which is not exist?
 
     }
 

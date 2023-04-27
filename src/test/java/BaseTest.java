@@ -20,8 +20,15 @@ public class BaseTest {
         closeWebDriver();
     }
 
-    StartPage startPage = new StartPage();
+    HomePage homePage = new HomePage();
     SignInPage signInPage = new SignInPage();
     SignUpPage signUpPage = new SignUpPage();
+    Header header = new Header();
+    Courses courses= new Courses();
+    StudentDirectory studentDirectory = new StudentDirectory();
+    AddCoursePage addCoursePage = new AddCoursePage();
+
+
+
 
 }

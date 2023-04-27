@@ -1,11 +1,7 @@
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
-import org.openqa.selenium.By;
 
-import java.time.Duration;
-
-import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
@@ -33,11 +29,9 @@ public class SignInPage {
         assertTrue(currentUrl.contains("/sign-in"));
     }
     public void enterEmail(String enterEmail) {
-        inputFieldEmail.shouldBe(visible, Duration.ofSeconds(10));
         inputFieldEmail.setValue(enterEmail);
     }
     public void enterPassword(String enterPassword) {
-        inputFieldPassword.shouldBe(visible);
         inputFieldPassword.setValue(enterPassword);
     }
     public void clickOnSingInButton (){
@@ -61,10 +55,13 @@ public class SignInPage {
         linkToResetPassword.click();
     }
 
+   public void successSignIn(String valueEmail, String valuePassword) {
+        clickOnSingInButton();
+        enterEmail(valueEmail);
+        enterPassword(valuePassword);
+        clickOnSingInButton();
 
-
-
-
+   }
 
 
 
