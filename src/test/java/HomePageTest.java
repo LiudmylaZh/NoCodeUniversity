@@ -12,9 +12,6 @@ public class HomePageTest extends BaseTest{
         homePage.containersContentShouldBeVisible();
         homePage.containersContentShouldBeVisible();
 
-
-
-
     }
     @Test
     public void theButtonSingInIsAvailable(){

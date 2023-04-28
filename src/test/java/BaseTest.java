@@ -27,6 +27,8 @@ public class BaseTest {
     Courses courses= new Courses();
     StudentDirectory studentDirectory = new StudentDirectory();
     AddCoursePage addCoursePage = new AddCoursePage();
+    ProfessorPage professorPage = new ProfessorPage();
+    RecoverPasswordPage recoverPassword = new RecoverPasswordPage();
 
 
 

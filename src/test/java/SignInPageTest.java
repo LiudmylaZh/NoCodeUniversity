@@ -41,9 +41,21 @@ public class SignInPageTest extends BaseTest{
     }
 
     @Test
+    public void loginWithInvalidDatesWithRoleStudent() {
+        homePage.clickOnSignInButton();
+        Configuration.fastSetValue = true;
+        signInPage.enterEmail("malik.example.com");
+        signInPage.enterPassword("12345");
+        signInPage.clickOnSingInButton();
+        signInPage.theErrorMessageShouldBeVisible();
+    }
+
+
+        @Test
     public void resetPassword (){
         homePage.clickOnSignInButton();
         signInPage.clickOnForgotPassword();
+        recoverPassword.inputFieldEmailIsVisible();
         // how does check the form which is not exist?
 
     }

@@ -26,12 +26,15 @@ public class HomePage {
 
 
 
+
     public void logoShouldBeVisible() {
         logo.shouldBe(Condition.visible);
     }
     public void buttonAboutUsShouldBeVisible() {
         buttonAboutUs.shouldBe(Condition.visible);
     }
+
+
     public void buttonProfessorsShouldBeVisible(){
         buttonProfessors.shouldBe(Condition.visible);
 

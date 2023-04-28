@@ -15,7 +15,7 @@ public class SignInPage {
     private SelenideElement avatarOfTeacher = $(byAttribute("alt", "Roxanne"));
     private SelenideElement studentDirectoryButton = $ (byAttribute("href", "/student-directory"));
     private SelenideElement errorMessage = $(byClassName("error-msg-icon"));
-    private SelenideElement avatarOfStudent = $(byAttribute("src", "https://v5.airtableusercontent.com/v1/16/16/1681840800000/63dD2yME58NFOfJaUelKBg/NLWGdesIgGA919vHhzXHehxYJpaMaVEAYD_bS2WBUwp2s7u0urzP4TF4dZg1sj_t4EJinCOHbgCHesyRD6TIDw/5LrDTF51PjuGMM2dS7dYh2qRS-pGAA9b-tCDzJR6ezQ"));
+    private SelenideElement avatarOfStudent = $(byAttribute("alt", "Malik"));
     private SelenideElement linkToResetPassword = $(byAttribute("href","/forgot-password"));
 
     public void signInFormShouldBeVisible() {

@@ -1,7 +1,7 @@
 import com.codeborne.selenide.Configuration;
 import org.junit.Test;
 
-public class HeaderTestTeacher extends BaseTest{
+public class HeaderTest extends BaseTest{
 
 
     @Test
@@ -27,7 +27,7 @@ public class HeaderTestTeacher extends BaseTest{
         homePage.clickOnSignInButton();
         Configuration.fastSetValue = true;
         signInPage.successSignIn("roxanne@example.com", "123456");
-        header.buttonCoursesIsAble();
+        header.buttonCoursesForAuthorizedUser();
         courses.courseCartsAreExist();
         courses.currentUrlIsCorrect();
     }
@@ -64,6 +64,53 @@ public class HeaderTestTeacher extends BaseTest{
         Configuration.fastSetValue = true;
         signInPage.successSignIn("roxanne@example.com", "123456");
         header.clickOnUserIconTeacher();
+        header.userMenuIsVisible();
+
+    }
+
+    @Test
+    public void theButtonAboutUsForStudentIsAble () {
+        homePage.clickOnSignInButton();
+        Configuration.fastSetValue = true;
+        signInPage.successSignIn(" malik@example.com", "123456");
+        header.buttonAboutAsIsAble();
+    }
+
+    @Test
+    public void theButtonCoursesForStudentIsAble () {
+        homePage.clickOnSignInButton();
+        Configuration.fastSetValue = true;
+        signInPage.successSignIn("malik@example.com", "123456");
+        header.buttonCoursesForAuthorizedUser();
+        courses.courseCartsAreExist();
+        courses.currentUrlIsCorrect();
+    }
+
+
+    @Test
+    public void theButtonProfessorForStudentIsAble (){
+        homePage.clickOnSignInButton();
+        Configuration.fastSetValue = true;
+        signInPage.successSignIn("malik@example.com", "123456");
+        header.buttonProfessorsIsAble();
+        professorPage.formOfProfessorsIsOpen();
+    }
+    @Test
+    public void buttonStudentDirectoryForStudentIsAble (){
+        homePage.clickOnSignInButton();
+        Configuration.fastSetValue = true;
+        signInPage.successSignIn("malik@example.com", "123456");
+        header.buttonStudentDirectoryIsAble();
+        studentDirectory.formOfStudentIsExist();
+    }
+
+
+    @Test
+    public void userIconOfStudentIsAble (){
+        homePage.clickOnSignInButton();
+        Configuration.fastSetValue = true;
+        signInPage.successSignIn("malik@example.com", "123456");
+        header.clickOnUserIconStudent ();
         header.userMenuIsVisible();
 
     }

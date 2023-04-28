@@ -12,7 +12,7 @@ public class Header {
     private SelenideElement buttonAboutUs = $(byAttribute("href", "#about-us"));
     private ElementsCollection containerAboutUs = $$(byClassName("container"));
 
-    private SelenideElement buttonCourses = $(byXpath("//*[@id=\"home-header-logged-in-teachers\"]/header/div/div/div[1]/a[2]"));
+    private SelenideElement buttonCourses = $(byId("#courses-grid-non-logged-in"));
     private SelenideElement coursesList = $(byAttribute("role", "menuitem"));
     private SelenideElement buttonProfessors = $(byAttribute("href", "#teacher-spotlight-heading"));
     private SelenideElement headerOfProfessorsSection = $ (byClassName("ql-align-center"));
@@ -23,6 +23,8 @@ public class Header {
     private SelenideElement userIconForTeacher = $ (byAttribute("alt", "Roxanne"));
     private SelenideElement userMenu = $ (byAttribute("href", "/user-profile"));
     private SelenideElement userIconStudent = $ (byAttribute("alt", "Malik"));
+    private SelenideElement buttonCourseForAuthorizedUser = $ (byAttribute("focusable", "false"));
+
 
 
 
@@ -38,6 +40,13 @@ public class Header {
         buttonCourses.click();
         buttonCourses.shouldBe(visible, Duration.ofSeconds(5));
         coursesList.click();
+    }
+
+    public void buttonCoursesForAuthorizedUser() {
+        buttonCourseForAuthorizedUser.click();
+        buttonCourseForAuthorizedUser.shouldBe(Condition.visible);
+        coursesList.click();
+
     }
 
     public void buttonProfessorsIsAble () {
