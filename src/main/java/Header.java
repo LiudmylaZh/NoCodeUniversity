@@ -23,31 +23,34 @@ public class Header {
     private SelenideElement userIconForTeacher = $ (byAttribute("alt", "Roxanne"));
     private SelenideElement userMenu = $ (byAttribute("href", "/user-profile"));
     private SelenideElement userIconStudent = $ (byAttribute("alt", "Malik"));
-    private SelenideElement buttonCourseForAuthorizedUser = $ (byAttribute("focusable", "false"));
+    private SelenideElement buttonCourseForTeacher = $ (byXpath("//*[@id=\"home-header-logged-in-teachers\"]/header/div/div/div[1]/a[2]"));
 
-
+    private SelenideElement buttonCourseForStudent = $ (byXpath("//*[@id=\"home_header4\"]/header/div/div/div[1]/a[2]"));
 
 
 
     public void buttonAboutAsIsAble (){
+        buttonAboutUs.shouldBe(enabled);
         buttonAboutUs.click();
         containerAboutUs.get(1).shouldBe(visible, Duration.ofSeconds(10));
         containerAboutUs.get(1).shouldHave(partialText("University"));
 
     }
 
-    public void buttonCoursesIsAble (){
-        buttonCourses.click();
-        buttonCourses.shouldBe(visible, Duration.ofSeconds(5));
-        coursesList.click();
-    }
 
-    public void buttonCoursesForAuthorizedUser() {
-        buttonCourseForAuthorizedUser.click();
-        buttonCourseForAuthorizedUser.shouldBe(Condition.visible);
+    public void buttonCoursesForTeacher() {
+        buttonCourseForTeacher.click();
+        buttonCourseForTeacher.shouldBe(Condition.visible);
         coursesList.click();
 
     }
+    public void buttonCoursesForStudent() {
+        buttonCourseForStudent.click();
+        buttonCourseForStudent.shouldBe(Condition.visible);
+        coursesList.click();
+    }
+
+
 
     public void buttonProfessorsIsAble () {
         buttonProfessors.click();
@@ -74,8 +77,6 @@ public class Header {
     public void clickOnUserIconStudent (){
         userIconStudent.click();
     }
-
-
 
 
 

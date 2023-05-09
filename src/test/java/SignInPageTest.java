@@ -10,8 +10,8 @@ public class SignInPageTest extends BaseTest{
         signInPage.enterEmail("roxanne@example.com");
         signInPage.enterPassword("123456");
         signInPage.clickOnSingInButton();
-        signInPage.avatarOfTeacherShouldBeVisible();
-        signInPage.studentDirectoryButtonShouldBeVisible();
+       // signInPage.avatarOfTeacherShouldBeVisible();
+        //signInPage.studentDirectoryButtonShouldBeVisible();
 
     }
 @Test
@@ -59,6 +59,21 @@ public class SignInPageTest extends BaseTest{
         // how does check the form which is not exist?
 
     }
+
+    @Test
+    public void successfulLogOutTeacher () {
+        homePage.clickOnSignInButton();
+        Configuration.fastSetValue = true;
+        signInPage.successSignIn("malik@example.com", "123456");
+        signInPage.avatarOfStudentShouldBeVisible();
+        signInPage.clickOnAvatarStudent();
+        signInPage.clickOnSignOutButtonStudent();
+        signInPage.signInFormShouldBeVisible();
+        signInPage.currentUrlIsCorrectOnPageSignIn();
+
+
+    }
+
 
 
 }

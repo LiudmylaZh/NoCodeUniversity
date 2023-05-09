@@ -4,6 +4,8 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
+import java.time.Duration;
+
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byAttribute;
@@ -38,6 +40,10 @@ public class HomePage {
     public void buttonProfessorsShouldBeVisible(){
         buttonProfessors.shouldBe(Condition.visible);
 
+    }
+    public void clickOnButtonProfessors(){
+        buttonProfessors.click();
+        buttonProfessors.shouldBe(visible, Duration.ofSeconds(1000));
     }
     public void singInButtonInTheHeaderShouldBeVisible(){
         singUpButtons.get(0).shouldBe(Condition.visible);

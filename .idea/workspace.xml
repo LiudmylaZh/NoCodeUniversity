@@ -4,20 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d6a6f17-6b96-431d-adee-16e917f2d4be" name="Changes" comment="positive test for Sign in is added">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ProfessorPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RecoverPasswordPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/SignUpPageTest.java" afterDir="false" />
+    <list default="true" id="1d6a6f17-6b96-431d-adee-16e917f2d4be" name="Changes" comment="added new Pages, added tests for Sign Up form">
+      <change afterPath="$PROJECT_DIR$/src/test/java/ProfessorsPageTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Header.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Header.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ProfessorPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ProfessorPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SignInPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SignInPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SignUpPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SignUpPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BaseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/HeaderTestStudent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/HeaderTestTeacher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/HeaderTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/HomePageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/HomePageTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/HeaderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/HeaderTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/SignInPageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/SignInPageTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,60 +58,63 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.SignUpPageTest">
-    <configuration name="HeaderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.ProfessorsPageTest.searchByCourseManeInProfessorsSection">
+    <configuration name="ProfessorsPageTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Selenium" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="HeaderTest" />
+      <option name="MAIN_CLASS_NAME" value="ProfessorsPageTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HomePageTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ProfessorsPageTest.searchByCourseManeInProfessorsSection" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Selenium" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="HomePageTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="HomePageTest.theElementsOnStartPageShouldBeVisible" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Selenium" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="HomePageTest" />
-      <option name="METHOD_NAME" value="theElementsOnStartPageShouldBeVisible" />
+      <option name="MAIN_CLASS_NAME" value="ProfessorsPageTest" />
+      <option name="METHOD_NAME" value="searchByCourseManeInProfessorsSection" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SignInPageTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SignInPageTest.loginWithInvalidDatesWithRoleStudent" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Selenium" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="SignInPageTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="METHOD_NAME" value="loginWithInvalidDatesWithRoleStudent" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SignUpPageTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SignInPageTest.loginWithValidDatesWithRoleTeacher" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Selenium" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="SignUpPageTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="SignInPageTest" />
+      <option name="METHOD_NAME" value="loginWithValidDatesWithRoleTeacher" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SignInPageTest.resetPassword" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Selenium" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SignInPageTest" />
+      <option name="METHOD_NAME" value="resetPassword" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.SignUpPageTest" />
-        <item itemvalue="JUnit.SignInPageTest" />
-        <item itemvalue="JUnit.HomePageTest" />
-        <item itemvalue="JUnit.HomePageTest.theElementsOnStartPageShouldBeVisible" />
-        <item itemvalue="JUnit.HeaderTest" />
+        <item itemvalue="JUnit.ProfessorsPageTest.searchByCourseManeInProfessorsSection" />
+        <item itemvalue="JUnit.ProfessorsPageTest" />
+        <item itemvalue="JUnit.SignInPageTest.loginWithValidDatesWithRoleTeacher" />
+        <item itemvalue="JUnit.SignInPageTest.loginWithInvalidDatesWithRoleStudent" />
+        <item itemvalue="JUnit.SignInPageTest.resetPassword" />
       </list>
     </recent_temporary>
   </component>
@@ -143,12 +141,20 @@
       <option name="project" value="LOCAL" />
       <updated>1682582125119</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="added new Pages, added tests for Sign Up form">
+      <created>1682718827050</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1682718827050</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="created new project" />
     <MESSAGE value="positive test for Sign in is added" />
-    <option name="LAST_COMMIT_MESSAGE" value="positive test for Sign in is added" />
+    <MESSAGE value="added new Pages, added tests for Sign Up form" />
+    <option name="LAST_COMMIT_MESSAGE" value="added new Pages, added tests for Sign Up form" />
   </component>
 </project>
