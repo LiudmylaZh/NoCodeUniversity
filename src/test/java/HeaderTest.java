@@ -22,9 +22,7 @@ public class HeaderTest extends BaseTest{
         homePage.clickOnSignInButton();
         Configuration.fastSetValue = true;
         signInPage.successSignIn("roxanne@example.com", "123456");
-        sleep(10000);
-
-        //header.buttonAboutAsIsAble();
+        header.buttonAboutAsIsAble();
     }
 
     @Test

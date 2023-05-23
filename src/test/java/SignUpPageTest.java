@@ -13,6 +13,7 @@ public class SignUpPageTest extends BaseTest {
         signUpPage.clickButtonSignUp();
         signUpPage.iconUserShouldBeVisible();
         header.buttonStudentDirectoryIsAble();
+        signUpPage.deleteTeacherAccount();
     }
 
     @Test
@@ -26,6 +27,7 @@ public class SignUpPageTest extends BaseTest {
         signUpPage.clickButtonSignUp();
         signUpPage.iconUserShouldBeVisible();
         header.buttonStudentDirectoryIsAble();
+        signUpPage.deleteStudentAccount();
     }
 
     @Test
@@ -76,15 +78,6 @@ public class SignUpPageTest extends BaseTest {
         homePage.clickOnSingUpButton();
         signUpPage.footerIsVisible();
     }
-
-
-
-
-
-
-
-
-
-    }
+}
 
 

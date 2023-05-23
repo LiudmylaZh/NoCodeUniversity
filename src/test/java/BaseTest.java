@@ -5,6 +5,8 @@ import org.junit.Before;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
+import java.util.Random;
+
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 
@@ -35,4 +37,10 @@ public class BaseTest {
 
 
 
-}
+    }
+
+
+
+
+
+

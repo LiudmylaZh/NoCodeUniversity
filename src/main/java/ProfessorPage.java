@@ -22,7 +22,9 @@ public class ProfessorPage {
     //private SelenideElement inputSearchField = $ (byXpath("//*[@id=\":r0:\"]"));
     private SelenideElement inputSearchField = $ (byAttribute("aria-invalid","false"));
     private ElementsCollection sectionOnHomePage = $$ (byClassName("filter-container"));
-
+    private SelenideElement errorText = $ (byCssSelector("[class=\"inbox-list-container\"] div"));
+    //private ElementsCollection professorsCards = $$ (byClassName("css-1w7j2y6"));
+    private ElementsCollection professorsCards = $$ (byClassName("horizontal-list-item"));
 
 
     public void formOfProfessorsIsOpen() {
@@ -31,23 +33,27 @@ public class ProfessorPage {
         cardsOfProfessors.shouldHave(CollectionCondition.size(10));
     }
 
-  /*  public void scrollDownSectionProfessors (){
-        executeAsyncJavaScript("arguments[0].scrollIntoView();", sectionOnHomePage.get(1));
-
-    }*/
 
     public void fillInputSearchField(String valueNameCourse) {
         inputSearchField.shouldBe(enabled);
         inputSearchField.click();
         inputSearchField.sendKeys(valueNameCourse);
+
     }
 
     public void noSearchingResultByCourseName (){
-        listOfProfessors.shouldBe(visible, Duration.ofSeconds(1000));
-        //executeAsyncJavaScript("arguments[0].scrollIntoView();", sectionOnHomePage.get(1));
-        listOfProfessors.shouldHave(text("No results found, try adjusting your search and filters."));
+        sectionOnHomePage.get(1).scrollIntoView(true);
+        sleep(1000);
+        System.out.println(errorText.getText());
+        errorText.shouldNotHave(text("No results found, try adjusting your search and filters."));
+    }
 
-
+    public void teacherListShouldHaveOnlyTeachers (){
+        sectionOnHomePage.get(1).scrollIntoView(true);
+        sleep(1000);
+       for (SelenideElement teacherCard:
+            professorsCards) {teacherCard.shouldNotHave(text("student"));
+       }
     }
 
 }

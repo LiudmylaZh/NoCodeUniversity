@@ -10,8 +10,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byAttribute;
 import static com.codeborne.selenide.Selectors.byClassName;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
+import static com.codeborne.selenide.Selenide.*;
 
 public class HomePage {
     private SelenideElement logo = $(By.className("sw-width-5xs"));
@@ -24,6 +23,7 @@ public class HomePage {
     private SelenideElement headerOfProfessorsSection = $ (byClassName("ql-align-center"));
     private SelenideElement listOfProfessors = $ (byClassName("inbox-list-container"));
     private ElementsCollection cardsOfProfessors = $$(byClassName("horizontal-list-item"));
+    private SelenideElement studentDirectoryButton = $ (byAttribute("href", "/student-directory"));
 
 
 
@@ -80,6 +80,12 @@ public class HomePage {
         listOfProfessors.shouldBe(visible);
         cardsOfProfessors.shouldHave(CollectionCondition.size(10));
     }
+
+    public void clickOnStudentDirectory(){
+        sleep(1000);
+        studentDirectoryButton.click();
+    }
+
 
 
 }

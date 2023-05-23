@@ -2,12 +2,14 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
+import io.restassured.http.ContentType;
 import org.apache.commons.lang3.RandomStringUtils;
 
 import java.util.Random;
 
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
+import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertTrue;
 
 public class SignUpPage {
@@ -31,6 +33,35 @@ public class SignUpPage {
     private SelenideElement header = $ (byClassName("css-183hjg0"));
     private SelenideElement footer = $ (byId("home-footer"));
     private SelenideElement errorMessageExistedEmail = $ (byXpath("//*[@id=\"signup\"]/div[1]"));
+
+    public static String  BASE_URI = "https://studio-api.softr.io";
+
+
+    public void deleteTeacherAccount(){
+        String generatedEmail = generateTeacherEmail();
+       given()
+                .baseUri(BASE_URI)
+                .header("Softr-Api-Key", "khIbAyJIU5CIuh1oDuBRx1s49")
+                .header("Softr-Domain", "jere237.softr.app")
+                .when().log().all()
+                .contentType(ContentType.JSON)
+                .delete("/v1/api/users/"+ generatedEmail)
+                .then().log().all()
+                .statusCode(200);
+    }
+
+    public void deleteStudentAccount(){
+        String generatedEmail = generateStudentEmail();
+        given()
+                .baseUri(BASE_URI)
+                .header("Softr-Api-Key", "khIbAyJIU5CIuh1oDuBRx1s49")
+                .header("Softr-Domain", "jere237.softr.app")
+                .when().log().all()
+                .contentType(ContentType.JSON)
+                .delete("/v1/api/users/"+ generatedEmail)
+                .then().log().all()
+                .statusCode(200);
+    }
 
     public void signUpFormShouldBeVisible(){
         signUpForm.shouldBe(Condition.visible);
@@ -60,12 +91,18 @@ public class SignUpPage {
         String fullName = ("S" + firstName + " " + "O"+lastName);
         inputFieldFullName.setValue(fullName);
 
+
     }
-    public void inputEmailTeacher(){
+   public void inputEmailTeacher(){
         inputFieldEmail.click();
+        inputFieldEmail.setValue(generateTeacherEmail());
+    }
+
+    public String generateTeacherEmail (){
         Random randomGenerator = new Random();
-        int randomInt = randomGenerator.nextInt(1000);
-        inputFieldEmail.setValue("Teacher"+ randomInt +"@gmail.com");
+        int randomInt = randomGenerator.nextInt(10000);
+        String randomEmailTeacher = "Teacher"+ randomInt +"@gmail.com";
+        return randomEmailTeacher;
     }
 
     public void inputRegisteredEmail (){
@@ -76,10 +113,16 @@ public class SignUpPage {
 
     public void inputEmailStudent(){
         inputFieldEmail.click();
-        Random randomGenerator = new Random();
-        int randomInt = randomGenerator.nextInt(1000);
-        inputFieldEmail.setValue("Student"+ randomInt +"@gmail.com");
+        inputFieldEmail.setValue(generateStudentEmail());
     }
+
+    public String generateStudentEmail (){
+        Random randomGenerator = new Random();
+        int randomInt = randomGenerator.nextInt(10000);
+        String randomEmailStudent = "Teacher"+ randomInt +"@gmail.com";
+        return randomEmailStudent;
+    }
+
 
     public void inputValidPassword (){
         inputFieldPassword.setValue("123QW!");
@@ -133,13 +176,5 @@ public class SignUpPage {
         errorMessageExistedEmail.shouldHave(Condition.text("User by given email already exists."));
 
     }
-
-
-
-
-
-
-
-
 
 }
