@@ -1,11 +1,7 @@
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
 
-import java.time.Duration;
-
-import static com.codeborne.selenide.Condition.enabled;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
@@ -20,12 +16,13 @@ public class SignInPage {
     //private ElementsCollection singInButtons = $$(byAttribute("href", "/sign-in"));
     //private SelenideElement avatarOfTeacher = $(byAttribute("alt", "Roxanne"));
     private SelenideElement signInButton = $(byId("sw-sign-in-submit-btn"));
-    private SelenideElement avatarOfTeacher = $(byCssSelector("class*='MuiAvatar-img'"));
+    private SelenideElement iconTeacher = $ (byXpath("//*[@id=\"home-header-logged-in-teachers\"]/header/div/div/div[2]/button"));;
     private SelenideElement studentDirectoryButton = $ (byAttribute("href", "/student-directory"));
     private SelenideElement errorMessage = $(byClassName("error-msg-icon"));
-    private SelenideElement avatarOfStudent = $(byAttribute("alt", "Malik"));
+    private SelenideElement iconStudent = $ (byXpath("//*[@id=\"home_header4\"]/header/div/div/div[2]/button"));
     private SelenideElement linkToResetPassword = $(byAttribute("href","/forgot-password"));
-    private SelenideElement signOutStudent = $ (byAttribute("href", "#"));
+    private SelenideElement signOutButtonTeacher = $ (byXpath("//*[@id=\"home-header-logged-in-teachers\"]/div/div[3]/ul/a[2]/span[1]"));
+    private SelenideElement signOutButtonStudent = $ (byXpath("//*[@id=\"home_header4\"]/div/div[3]/ul/a[2]"));
 
     public void signInFormShouldBeVisible() {
         signInForm.shouldBe(Condition.visible);
@@ -46,8 +43,8 @@ public class SignInPage {
     public void clickOnSingInButton (){
         signInButton.click();
     }
-    public void avatarOfTeacherShouldBeVisible(){
-        avatarOfTeacher.shouldBe(visible);
+    public void iconTeacherShouldBeVisible(){
+        iconTeacher.shouldBe(visible);
     }
     public void studentDirectoryButtonShouldBeVisible (){
         studentDirectoryButton.shouldBe(visible);
@@ -56,17 +53,18 @@ public class SignInPage {
     public void theErrorMessageShouldBeVisible (){
         errorMessage.shouldBe(visible);
     }
-    public void avatarOfStudentShouldBeVisible (){
-        avatarOfStudent.shouldBe(visible);
+    public void iconStudentShouldBeVisible(){
+        iconStudent.shouldBe(visible);
     }
-    public void clickOnAvatarStudent () {
-        avatarOfStudent.click();
+    public void clickOnIconStudent() {
+        iconStudent.click();
 
     }
-    public void clickOnSignOutButtonStudent () {
-        avatarOfStudent.shouldBe(visible, Duration.ofSeconds(1000));
-        signOutStudent.click();
+    public void clickOnSignOutButtonTeacher() {signOutButtonTeacher.click();}
 
+    public void clickOnSignOutButtonStudent() {signOutButtonStudent.click();}
+    public void clickOnIconTeacher (){
+        iconTeacher.click();
     }
 
 

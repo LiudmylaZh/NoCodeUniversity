@@ -2,14 +2,18 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
+import io.restassured.RestAssured;
+import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
 import org.apache.commons.lang3.RandomStringUtils;
 
 import java.util.Random;
 
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
-import static io.restassured.RestAssured.given;
+import static io.restassured.RestAssured.*;
 import static org.junit.Assert.assertTrue;
 
 public class SignUpPage {
@@ -36,29 +40,36 @@ public class SignUpPage {
 
     public static String  BASE_URI = "https://studio-api.softr.io";
 
+    public static String generatedTeacherEmail;
+    public static String generatedStudentEmail;
 
+    static RequestSpecification specification = new RequestSpecBuilder()
+            .setUrlEncodingEnabled(false)
+            .setBaseUri(BASE_URI)
+            .setContentType(ContentType.JSON)
+            .addHeader("Softr-Api-Key", "khIbAyJIU5CIuh1oDuBRx1s49")
+            .addHeader("Softr-Domain","erich416.softr.app" )
+            .build();
     public void deleteTeacherAccount(){
-        String generatedEmail = generateTeacherEmail();
-       given()
-                .baseUri(BASE_URI)
-                .header("Softr-Api-Key", "khIbAyJIU5CIuh1oDuBRx1s49")
-                .header("Softr-Domain", "jere237.softr.app")
-                .when().log().all()
-                .contentType(ContentType.JSON)
-                .delete("/v1/api/users/"+ generatedEmail)
+
+        given()
+                .spec(specification)
+                .when()
+                .log().all()
+                .delete("/v1/api/users/"+ generatedTeacherEmail)
                 .then().log().all()
                 .statusCode(200);
+
+
     }
 
     public void deleteStudentAccount(){
-        String generatedEmail = generateStudentEmail();
+
         given()
-                .baseUri(BASE_URI)
-                .header("Softr-Api-Key", "khIbAyJIU5CIuh1oDuBRx1s49")
-                .header("Softr-Domain", "jere237.softr.app")
-                .when().log().all()
-                .contentType(ContentType.JSON)
-                .delete("/v1/api/users/"+ generatedEmail)
+                .spec(specification)
+                .when()
+                .log().all()
+                .delete("/v1/api/users/"+ generatedStudentEmail)
                 .then().log().all()
                 .statusCode(200);
     }
@@ -95,13 +106,15 @@ public class SignUpPage {
     }
    public void inputEmailTeacher(){
         inputFieldEmail.click();
-        inputFieldEmail.setValue(generateTeacherEmail());
+        generatedTeacherEmail = generateTeacherEmail();
+        System.out.println(generatedTeacherEmail);
+        inputFieldEmail.setValue(generatedTeacherEmail);
     }
 
     public String generateTeacherEmail (){
         Random randomGenerator = new Random();
         int randomInt = randomGenerator.nextInt(10000);
-        String randomEmailTeacher = "Teacher"+ randomInt +"@gmail.com";
+        String randomEmailTeacher = "teacher"+ randomInt +"@gmail.com";
         return randomEmailTeacher;
     }
 
@@ -113,13 +126,15 @@ public class SignUpPage {
 
     public void inputEmailStudent(){
         inputFieldEmail.click();
-        inputFieldEmail.setValue(generateStudentEmail());
+        generatedStudentEmail = generateStudentEmail();
+        System.out.println(generatedStudentEmail);
+        inputFieldEmail.setValue(generatedStudentEmail);
     }
 
     public String generateStudentEmail (){
         Random randomGenerator = new Random();
         int randomInt = randomGenerator.nextInt(10000);
-        String randomEmailStudent = "Teacher"+ randomInt +"@gmail.com";
+        String randomEmailStudent = "Student"+ randomInt +"@gmail.com";
         return randomEmailStudent;
     }
 

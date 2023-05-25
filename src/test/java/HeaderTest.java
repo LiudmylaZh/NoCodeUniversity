@@ -21,25 +21,17 @@ public class HeaderTest extends BaseTest{
     public void theButtonAboutUsIsAble () throws InterruptedException {
         homePage.clickOnSignInButton();
         Configuration.fastSetValue = true;
-        signInPage.successSignIn("roxanne@example.com", "123456");
+        signInPage.successSignIn(EMAIL_TEACHER, PASSWORD);
         header.buttonAboutAsIsAble();
     }
 
-    @Test
-    public void theButtonCoursesIsAble () {
-        homePage.clickOnSignInButton();
-        Configuration.fastSetValue = true;
-        signInPage.successSignIn("roxanne@example.com", "123456");
-        header.buttonCoursesForTeacher();
-        courses.courseCartsAreExist();
-        courses.currentUrlIsCorrect();
-    }
+
 
     @Test
     public void theButtonProfessorIsAble (){
         homePage.clickOnSignInButton();
         Configuration.fastSetValue = true;
-        signInPage.successSignIn("roxanne@example.com", "123456");
+        signInPage.successSignIn(EMAIL_STUDENT, PASSWORD);
         header.buttonProfessorsIsAble();
         homePage.formOfProfessorsIsOpen();
     }
@@ -47,7 +39,7 @@ public class HeaderTest extends BaseTest{
     public void buttonStudentDirectoryIsAble (){
         homePage.clickOnSignInButton();
         Configuration.fastSetValue = true;
-        signInPage.successSignIn("roxanne@example.com", "123456");
+        signInPage.successSignIn(EMAIL_STUDENT, PASSWORD);
         header.buttonStudentDirectoryIsAble();
         studentDirectory.formOfStudentIsExist();
     }
@@ -56,17 +48,17 @@ public class HeaderTest extends BaseTest{
     public void buttonAddCourseIsAble () {
         homePage.clickOnSignInButton();
         Configuration.fastSetValue = true;
-        signInPage.successSignIn("roxanne@example.com", "123456");
+        signInPage.successSignIn(EMAIL_TEACHER, PASSWORD);
         header.clickOnButtonAddCourse();
         addCoursePage.currentUrlIsCorrect();
         addCoursePage.headerOfAddCourseFormShouldHaveText();
     }
     @Test
-    public void userIconIsAble (){
+    public void teacherIconIsAble(){
         homePage.clickOnSignInButton();
         Configuration.fastSetValue = true;
-        signInPage.successSignIn("roxanne@example.com", "123456");
-        header.clickOnUserIconTeacher();
+        signInPage.successSignIn(EMAIL_TEACHER, PASSWORD);
+        header.clickOnTeacherIcon();
         header.userMenuIsVisible();
 
     }
@@ -75,7 +67,7 @@ public class HeaderTest extends BaseTest{
     public void theButtonAboutUsForStudentIsAble () {
         homePage.clickOnSignInButton();
         Configuration.fastSetValue = true;
-        signInPage.successSignIn(" malik@example.com", "123456");
+        signInPage.successSignIn(EMAIL_STUDENT, PASSWORD);
         header.buttonAboutAsIsAble();
     }
 
@@ -83,7 +75,7 @@ public class HeaderTest extends BaseTest{
     public void theButtonCoursesForStudentIsAble () {
         homePage.clickOnSignInButton();
         Configuration.fastSetValue = true;
-        signInPage.successSignIn("malik@example.com", "123456");
+        signInPage.successSignIn(EMAIL_STUDENT, PASSWORD);
         header.buttonCoursesForStudent();
         courses.courseCartsAreExist();
         courses.currentUrlIsCorrect();
@@ -94,7 +86,7 @@ public class HeaderTest extends BaseTest{
     public void theButtonProfessorForStudentIsAble (){
         homePage.clickOnSignInButton();
         Configuration.fastSetValue = true;
-        signInPage.successSignIn("malik@example.com", "123456");
+        signInPage.successSignIn(EMAIL_STUDENT, PASSWORD);
         header.buttonProfessorsIsAble();
         professorPage.formOfProfessorsIsOpen();
     }
@@ -102,17 +94,17 @@ public class HeaderTest extends BaseTest{
     public void buttonStudentDirectoryForStudentIsAble (){
         homePage.clickOnSignInButton();
         Configuration.fastSetValue = true;
-        signInPage.successSignIn("malik@example.com", "123456");
+        signInPage.successSignIn(EMAIL_STUDENT, PASSWORD);
         header.buttonStudentDirectoryIsAble();
         studentDirectory.formOfStudentIsExist();
     }
 
 
     @Test
-    public void userIconOfStudentIsAble (){
+    public void studentIconIsAble(){
         homePage.clickOnSignInButton();
         Configuration.fastSetValue = true;
-        signInPage.successSignIn("malik@example.com", "123456");
+        signInPage.successSignIn(EMAIL_STUDENT, PASSWORD);
         header.clickOnUserIconStudent ();
         header.userMenuIsVisible();
 

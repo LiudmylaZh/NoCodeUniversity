@@ -10,7 +10,7 @@ public class StudentDirectoryTest extends BaseTest {
     @Test
     public void listExistOnlyStudents (){
         homePage.clickOnSignInButton();
-        signInPage.successSignIn("roxanne@example.com", "123456");
+        signInPage.successSignIn(EMAIL_TEACHER, PASSWORD);
         homePage.clickOnStudentDirectory();
         studentDirectory.listOfStudentsCardsExistOnlyStudents();
 

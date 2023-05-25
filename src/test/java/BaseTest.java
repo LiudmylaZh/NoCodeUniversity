@@ -11,7 +11,15 @@ import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 
 public class BaseTest {
-    public final String BASE_URL = "https://jere237.softr.app/";
+    public final String BASE_URL = "https://erich416.softr.app";
+    public final String EMAIL_TEACHER = "monika@example.com";
+    public final String FULL_NAME_TEACHER = "Monika Telli";
+    public final String PASSWORD = "123456Q";
+    public final String EMAIL_STUDENT = "braun@example.com";
+    public final String FULL_NAME_STUDENT = "Beatrice Braun";
+
+
+
 
     @Before
     public void setUp(){

@@ -9,7 +9,7 @@ public class ProfessorsPageTest extends BaseTest {
     public void searchByCourseNameInProfessorsSection () {
         homePage.clickOnSignInButton();
         Configuration.fastSetValue = true;
-        signInPage.successSignIn("malik@example.com", "123456");
+        signInPage.successSignIn(EMAIL_STUDENT, PASSWORD);
         professorPage.fillInputSearchField("Computer Science");
         professorPage.noSearchingResultByCourseName();
 
@@ -19,7 +19,7 @@ public class ProfessorsPageTest extends BaseTest {
     public void listOfTeachersExistOnlyTeacher (){
         homePage.clickOnSignInButton();
         Configuration.fastSetValue = true;
-        signInPage.successSignIn("roxanne@example.com", "123456");
+        signInPage.successSignIn(EMAIL_TEACHER, PASSWORD);
         professorPage.teacherListShouldHaveOnlyTeachers();
 
 

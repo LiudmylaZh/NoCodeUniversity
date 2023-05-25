@@ -7,56 +7,41 @@ public class SignInPageTest extends BaseTest{
     public void loginWithValidDatesWithRoleTeacher() {
         homePage.clickOnSignInButton();
         Configuration.fastSetValue = true;
-        signInPage.enterEmail("roxanne@example.com");
-        signInPage.enterPassword("123456");
-        signInPage.clickOnSingInButton();
-       // signInPage.avatarOfTeacherShouldBeVisible();
-        //signInPage.studentDirectoryButtonShouldBeVisible();
+        signInPage.successSignIn(EMAIL_TEACHER, PASSWORD);
+        signInPage.iconTeacherShouldBeVisible();
+        signInPage.studentDirectoryButtonShouldBeVisible();
 
     }
 @Test
-    public void loginWithInvalidDatesWithRoleTeacher() {
+    public void loginWithInvalidPasswordTeacher() {
         homePage.clickOnSignInButton();
         Configuration.fastSetValue = true;
-        signInPage.enterEmail("roxanne1@example.com");
-        signInPage.enterPassword("123Q456");
-        signInPage.clickOnSingInButton();
-        signInPage.theErrorMessageShouldBeVisible();
-
-
-    }
-
-    @Test
-
-    public void loginWithValidDatesWithRoleStudent() {
-        homePage.clickOnSignInButton();
-        Configuration.fastSetValue = true;
-        signInPage.enterEmail("malik@example.com");
-        signInPage.enterPassword("123456");
-        signInPage.clickOnSingInButton();
-        signInPage.avatarOfStudentShouldBeVisible();
-
-
-
-    }
-
-    @Test
-    public void loginWithInvalidDatesWithRoleStudent() {
-        homePage.clickOnSignInButton();
-        Configuration.fastSetValue = true;
-        signInPage.enterEmail("malik.example.com");
-        signInPage.enterPassword("12345");
-        signInPage.clickOnSingInButton();
+        signInPage.successSignIn(EMAIL_TEACHER, "123Q456");
         signInPage.theErrorMessageShouldBeVisible();
     }
 
+    @Test
+    public void loginWithValidDatesStudent() {
+        homePage.clickOnSignInButton();
+        Configuration.fastSetValue = true;
+        signInPage.successSignIn(EMAIL_STUDENT, PASSWORD);
+        signInPage.iconStudentShouldBeVisible();
+    }
+
+    @Test
+    public void loginWithInvalidEmailStudent() {
+        homePage.clickOnSignInButton();
+        Configuration.fastSetValue = true;
+        signInPage.successSignIn("braun.example.com", PASSWORD);
+        signInPage.theErrorMessageShouldBeVisible();
+    }
 
         @Test
     public void resetPassword (){
         homePage.clickOnSignInButton();
         signInPage.clickOnForgotPassword();
         recoverPassword.inputFieldEmailIsVisible();
-        // how does check the form which is not exist?
+
 
     }
 
@@ -64,15 +49,24 @@ public class SignInPageTest extends BaseTest{
     public void successfulLogOutTeacher () {
         homePage.clickOnSignInButton();
         Configuration.fastSetValue = true;
-        signInPage.successSignIn("malik@example.com", "123456");
-        signInPage.avatarOfStudentShouldBeVisible();
-        signInPage.clickOnAvatarStudent();
+        signInPage.successSignIn(EMAIL_TEACHER, PASSWORD);
+        signInPage.clickOnIconTeacher();
+        signInPage.clickOnSignOutButtonTeacher();
+        signInPage.signInFormShouldBeVisible();
+        signInPage.currentUrlIsCorrectOnPageSignIn();
+    }
+
+    @Test
+    public void successfulLogOutStudent () {
+        homePage.clickOnSignInButton();
+        Configuration.fastSetValue = true;
+        signInPage.successSignIn(EMAIL_STUDENT, PASSWORD);
+        signInPage.clickOnIconStudent();
         signInPage.clickOnSignOutButtonStudent();
         signInPage.signInFormShouldBeVisible();
         signInPage.currentUrlIsCorrectOnPageSignIn();
-
-
     }
+
 
 
 

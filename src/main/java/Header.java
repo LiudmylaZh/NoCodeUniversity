@@ -20,9 +20,9 @@ public class Header {
     private ElementsCollection cardsOfProfessors = $$(byClassName("horizontal-list-item"));
     private SelenideElement buttonStudentDirectory = $ (byAttribute("href", "/student-directory"));
     private SelenideElement buttonAddCourse = $ (byAttribute("href", "/add-course"));
-    private SelenideElement userIconForTeacher = $ (byAttribute("alt", "Roxanne"));
+    private SelenideElement iconTeacher = $ (byXpath("//*[@id=\"home-header-logged-in-teachers\"]/header/div/div/div[2]/button/div"));
     private SelenideElement userMenu = $ (byAttribute("href", "/user-profile"));
-    private SelenideElement userIconStudent = $ (byAttribute("alt", "Malik"));
+    private SelenideElement iconStudent = $ (byXpath("//*[@id=\"home_header4\"]/header/div/div/div[2]/button"));
     private SelenideElement buttonCourseForTeacher = $ (byXpath("//*[@id=\"home-header-logged-in-teachers\"]/header/div/div/div[1]/a[2]"));
 
     private SelenideElement buttonCourseForStudent = $ (byXpath("//*[@id=\"home_header4\"]/header/div/div/div[1]/a[2]"));
@@ -68,14 +68,14 @@ public class Header {
         buttonAddCourse.click();
     }
 
-    public void clickOnUserIconTeacher() {
-        userIconForTeacher.click();
+    public void clickOnTeacherIcon() {
+        iconTeacher.click();
     }
     public void userMenuIsVisible (){
         userMenu.shouldHave(visible);
     }
     public void clickOnUserIconStudent (){
-        userIconStudent.click();
+        iconStudent.click();
     }
 
 
